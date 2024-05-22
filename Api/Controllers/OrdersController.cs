@@ -9,6 +9,7 @@ namespace Final_Api_Project.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+     [Authorize]
     public class OrderController : ControllerBase
     {
         private readonly IOrderManager _orderManager;
