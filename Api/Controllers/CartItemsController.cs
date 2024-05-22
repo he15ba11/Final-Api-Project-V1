@@ -7,6 +7,7 @@ namespace Final_Api_Project.APIs.Controllers
 {
      [Route("api/[controller]")]
 [ApiController]
+ [Authorize]
 public class CartItemsController : ControllerBase
 {
         private readonly ICartItemManager _cartItemManager;
