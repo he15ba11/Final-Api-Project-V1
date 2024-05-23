@@ -1,13 +1,15 @@
 ﻿using Final_Api_Project.BL.Dtos.Carts;
 using Final_Api_Project.BL.Managers.CartItems;
 using Final_Api_Project.BL.Managers.Carts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Final_Api_Project.APIs.Controllers
 {
      [Route("api/[controller]")]
 [ApiController]
-public class CartItemsController : ControllerBase
+    [Authorize]
+    public class CartItemsController : ControllerBase
 {
         private readonly ICartItemManager _cartItemManager;
 

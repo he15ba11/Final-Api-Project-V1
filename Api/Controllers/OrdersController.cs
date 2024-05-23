@@ -2,6 +2,7 @@
 using Final_Api_Project.BL.Managers.Carts;
 using Final_Api_Project.BL.Managers.Orders;
 using Final_Api_Project.DAL.Data.Models.Orders;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -9,6 +10,7 @@ namespace Final_Api_Project.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+   
     public class OrderController : ControllerBase
     {
         private readonly IOrderManager _orderManager;
@@ -30,7 +32,7 @@ namespace Final_Api_Project.API.Controllers
             }
             return Ok(orderDetails);
         }
-
+        [Authorize]
         [HttpGet("user/{userId}")]
         public ActionResult<IEnumerable<OrderDTO>> GetOrdersByUserId(int userId)
         {
@@ -49,6 +51,7 @@ namespace Final_Api_Project.API.Controllers
             return Ok(totalPrice);
         }
 
+        [Authorize]
         [HttpPost("place-order/{userId}")]
         public ActionResult PlaceOrder(int userId)
         {
