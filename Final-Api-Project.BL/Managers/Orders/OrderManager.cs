@@ -76,7 +76,7 @@ namespace Final_Api_Project.BL.Managers.Orders
 
         public int PlaceOrder(int userId)
         {
-            _unitOfWork.OrderRepository.Delete(_unitOfWork.OrderRepository.GetOrdersByUserId(userId).Id);
+            //_unitOfWork.OrderRepository.Delete(_unitOfWork.OrderRepository.GetOrdersByUserId(userId).Id);
             var cart = _unitOfWork.CartRepository.GetCartByUserId(userId);
             if(cart == null) { return 1; }
             var orderItems = cart.CartItems.Select(ci => new OrderItem
